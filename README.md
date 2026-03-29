@@ -12,6 +12,30 @@ make sure angular v21 is installed else it will install it locally.
 on success, you can view the app on http://localhost:4200
 
 
+# Credentials
+
+# 1 
+username: jdoe
+password: Aadesh@1
+
+# 2
+username: aadesh_individual
+password: Aadesh@1
+
+# 3 Admin
+username: aadesh
+password: Aadesh@1
+
+
+
+# Future steps
+
+1. Forgot Password not done due to time
+2. Project management
+3. Team add or remove user
+4. Filter/search not done due to time
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version v21.
 
