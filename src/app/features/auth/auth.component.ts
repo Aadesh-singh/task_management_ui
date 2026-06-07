@@ -116,6 +116,7 @@ export class AuthComponent implements OnInit {
           this.toastService.error(err.error?.message || 'Login failed. Please try again.');
           console.error('Login failed:', err);
           this.isSubmitting.set(false);
+          this.loginForm.setErrors({ failed: err.error.message || "Login Failed" });
         }
       });
     } else {
@@ -139,6 +140,7 @@ export class AuthComponent implements OnInit {
         error: (err) => {
           this.toastService.error(err.error?.message || 'Registration failed.');
           this.isSubmitting.set(false);
+          this.registerForm.setErrors({ failed: err.error.message || "Registration Failed" });
         }
       });
     } else {

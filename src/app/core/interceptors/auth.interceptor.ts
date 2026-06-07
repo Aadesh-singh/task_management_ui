@@ -24,7 +24,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   return next(authReq).pipe(
     catchError((error: HttpErrorResponse) => {
       // Check if unauthorized (401) or forbidden (403 - for some backends)
-      if ((error.status === 401) && !req.url.includes('refresh')) {
+      if ((error.status === 401) && !req.url.includes('refresh') && !req.url.includes('login') && !req.url.includes('register')) {
         console.warn('Access token expired or forbidden. Attempting refresh...', req.url);
         return authService.refreshToken().pipe(
           switchMap((res) => {

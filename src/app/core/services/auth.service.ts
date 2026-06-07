@@ -29,6 +29,9 @@ export class AuthService {
   login(credentials: any): Observable<any> {
     return this.apiService.post<any>('users/login', credentials).pipe(
       tap(res => {
+        if (res.status == 'fail') {
+          return;
+        }
         if (res.user) {
           this.setUserDetail(res.user);
         }

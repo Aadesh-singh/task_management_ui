@@ -70,6 +70,10 @@
               }
             </div>
           </div>
+          <!-- Display error while login -->
+          @if (loginForm.errors && loginForm.errors['failed']) {
+          <span class="text-xs text-red-400 mt-1 block">{{loginForm.errors['failed']}}</span>
+          }
           <button type="submit" [disabled]="loginForm.invalid || isSubmitting()"
             class="w-full bg-primary hover:bg-primaryHover text-white font-medium py-3 rounded-lg shadow-[0_0_15px_rgba(99,102,241,0.4)] mt-8 transition-colors flex justify-center items-center gap-2 disabled:opacity-50">
             @if (isSubmitting()) {
@@ -205,11 +209,15 @@
                 }
               </select>
               @if (registerForm.get('team')?.touched && registerForm.get('team')?.invalid) {
-                <span class="text-xs text-red-400 mt-1 block">Please select a team.</span>
+              <span class="text-xs text-red-400 mt-1 block">Please select a team.</span>
               }
             </div>
             }
           </div>
+          <!-- Display error while registering -->
+          @if (registerForm.errors && registerForm.errors['failed']) {
+          <span class="text-xs text-red-400 mt-1 block">{{registerForm.errors['failed']}}</span>
+          }
           <button type="submit" [disabled]="registerForm.invalid || usernameStatus() !== 'available' || isSubmitting()"
             class="w-full bg-primary hover:bg-primaryHover text-white font-medium py-3 rounded-lg shadow-[0_0_15px_rgba(99,102,241,0.4)] mt-6 transition-colors flex justify-center items-center gap-2 disabled:opacity-50">
             @if (isSubmitting()) {
